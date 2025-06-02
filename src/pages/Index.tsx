@@ -1,3 +1,4 @@
+
 import React from 'react';
 import PodiumStep from '../components/PodiumStep';
 
@@ -26,6 +27,12 @@ const Index = () => {
       name: "إسراء",
       imageSrc: "/lovable-uploads/0d78814b-6fd4-420a-bb37-f463b1ed8e87.png",
       height: "200px"
+    },
+    {
+      position: 5,
+      name: "مركز التصوير المحترف 'زينب'",
+      imageSrc: "/lovable-uploads/0d78814b-6fd4-420a-bb37-f463b1ed8e87.png",
+      height: "160px"
     }
   ];
 

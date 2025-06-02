@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Camera } from 'lucide-react';
 import Medal from './Medal';
 import Trophy from './Trophy';
 
@@ -17,6 +18,7 @@ const PodiumStep: React.FC<PodiumStepProps> = ({ position, name, imageSrc, heigh
       case 2: return "المركز الثاني";
       case 3: return "المركز الثالث";
       case 4: return "المركز الرابع";
+      case 5: return "المركز الخامس";
       default: return "";
     }
   };
@@ -47,6 +49,12 @@ const PodiumStep: React.FC<PodiumStepProps> = ({ position, name, imageSrc, heigh
         text: "text-gray-100",
         glow: ""
       };
+      case 5: return {
+        bg: "bg-gradient-to-br from-purple-500 to-purple-700",
+        border: "border-purple-400",
+        text: "text-purple-100",
+        glow: ""
+      };
       default: return {
         bg: "bg-gray-200",
         border: "border-gray-300",
@@ -65,7 +73,14 @@ const PodiumStep: React.FC<PodiumStepProps> = ({ position, name, imageSrc, heigh
         {position === 1 && (
           <Trophy className="w-12 h-12 animate-pulse" />
         )}
-        <Medal position={position} className="w-16 h-20" />
+        {position !== 5 && (
+          <Medal position={position} className="w-16 h-20" />
+        )}
+        {position === 5 && (
+          <div className="w-16 h-20 flex items-center justify-center">
+            <Camera className="w-12 h-12 text-purple-300 animate-pulse" />
+          </div>
+        )}
       </div>
 
       {/* Profile Image */}
@@ -99,11 +114,15 @@ const PodiumStep: React.FC<PodiumStepProps> = ({ position, name, imageSrc, heigh
           {getPositionText()}
         </p>
 
-        {/* Position Number */}
+        {/* Position Number or Camera Icon */}
         <div className={`mt-2 w-10 h-10 rounded-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center`}>
-          <span className={`${colors.text} font-bold text-lg`}>
-            {position}
-          </span>
+          {position === 5 ? (
+            <Camera className="w-6 h-6 text-purple-200" />
+          ) : (
+            <span className={`${colors.text} font-bold text-lg`}>
+              {position}
+            </span>
+          )}
         </div>
       </div>
     </div>
