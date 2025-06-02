@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import PodiumStep from '../components/PodiumStep';
 
 const Index = () => {
@@ -35,6 +36,30 @@ const Index = () => {
       height: "160px"
     }
   ];
+
+  const [currentWinnerIndex, setCurrentWinnerIndex] = useState(0);
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+
+  useEffect(() => {
+    if (currentWinnerIndex < winners.length) {
+      const timer = setTimeout(() => {
+        if (currentWinnerIndex === winners.length - 1) {
+          setIsAnimationComplete(true);
+        } else {
+          setCurrentWinnerIndex(prev => prev + 1);
+        }
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [currentWinnerIndex, winners.length]);
+
+  const getCurrentWinner = () => {
+    // ترتيب العرض: 1، 2، 3، 4، 5
+    const displayOrder = [1, 2, 3, 4, 5];
+    const position = displayOrder[currentWinnerIndex];
+    return winners.find(winner => winner.position === position);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden">
@@ -80,16 +105,34 @@ const Index = () => {
 
         {/* Podium */}
         <div className="flex justify-center items-end gap-4 md:gap-8 max-w-6xl mx-auto mb-8">
-          {winners.map((winner) => (
-            <PodiumStep
-              key={winner.position}
-              position={winner.position}
-              name={winner.name}
-              subtitle={winner.subtitle}
-              imageSrc={winner.imageSrc}
-              height={winner.height}
-            />
-          ))}
+          {!isAnimationComplete ? (
+            // عرض الفائز الحالي منفرداً مع تأثير الظهور
+            <div className="animate-fade-in">
+              {getCurrentWinner() && (
+                <PodiumStep
+                  key={getCurrentWinner()!.position}
+                  position={getCurrentWinner()!.position}
+                  name={getCurrentWinner()!.name}
+                  subtitle={getCurrentWinner()!.subtitle}
+                  imageSrc={getCurrentWinner()!.imageSrc}
+                  height={getCurrentWinner()!.height}
+                />
+              )}
+            </div>
+          ) : (
+            // عرض جميع الفائزين معاً بعد انتهاء الرسوم المتحركة
+            winners.map((winner) => (
+              <div key={winner.position} className="animate-scale-in">
+                <PodiumStep
+                  position={winner.position}
+                  name={winner.name}
+                  subtitle={winner.subtitle}
+                  imageSrc={winner.imageSrc}
+                  height={winner.height}
+                />
+              </div>
+            ))
+          )}
         </div>
 
         {/* Celebration Message */}
