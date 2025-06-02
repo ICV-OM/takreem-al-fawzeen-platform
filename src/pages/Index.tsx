@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PodiumStep from '../components/PodiumStep';
 
@@ -7,13 +6,13 @@ const Index = () => {
     {
       position: 2,
       name: "أحمد الكاسبي",
-      imageSrc: "/lovable-uploads/a21bba29-a454-4c5e-8f58-6db3213dce05.png",
+      imageSrc: "/lovable-uploads/ab7a64bf-787c-4536-b086-883ce292d4fb.png",
       height: "280px"
     },
     {
       position: 1,
       name: "عمار الهاشمي",
-      imageSrc: "/lovable-uploads/ab7a64bf-787c-4536-b086-883ce292d4fb.png",
+      imageSrc: "/lovable-uploads/a21bba29-a454-4c5e-8f58-6db3213dce05.png",
       height: "320px"
     },
     {
