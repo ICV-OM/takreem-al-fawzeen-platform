@@ -9,9 +9,10 @@ interface PodiumStepProps {
   name: string;
   imageSrc: string;
   height: string;
+  subtitle?: string;
 }
 
-const PodiumStep: React.FC<PodiumStepProps> = ({ position, name, imageSrc, height }) => {
+const PodiumStep: React.FC<PodiumStepProps> = ({ position, name, imageSrc, height, subtitle }) => {
   const getPositionText = () => {
     switch (position) {
       case 1: return "المركز الأول";
@@ -109,10 +110,19 @@ const PodiumStep: React.FC<PodiumStepProps> = ({ position, name, imageSrc, heigh
           {name}
         </h3>
         
-        {/* Position */}
-        <p className={`${colors.text} font-semibold text-sm md:text-base text-center`}>
-          {getPositionText()}
-        </p>
+        {/* Subtitle for position 5 */}
+        {position === 5 && subtitle && (
+          <p className={`${colors.text} font-medium text-sm md:text-base text-center mb-2`}>
+            {subtitle}
+          </p>
+        )}
+        
+        {/* Position - only show for positions other than 5 */}
+        {position !== 5 && (
+          <p className={`${colors.text} font-semibold text-sm md:text-base text-center`}>
+            {getPositionText()}
+          </p>
+        )}
 
         {/* Position Number or Camera Icon */}
         <div className={`mt-2 w-10 h-10 rounded-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center`}>
