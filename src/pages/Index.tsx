@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import PodiumStep from '../components/PodiumStep';
 
@@ -6,8 +5,8 @@ const Index = () => {
   const winners = [
     {
       position: 2,
-      name: "أحمد الكاسبي",
-      imageSrc: "/lovable-uploads/ab7a64bf-787c-4536-b086-883ce292d4fb.png",
+      name: "ماجد الهاشمي",
+      imageSrc: "/lovable-uploads/beb1a6e7-9482-4d58-b0ca-a914a6736567.png",
       height: "280px"
     },
     {
@@ -18,8 +17,8 @@ const Index = () => {
     },
     {
       position: 3,
-      name: "ماجد الهاشمي",
-      imageSrc: "/lovable-uploads/beb1a6e7-9482-4d58-b0ca-a914a6736567.png",
+      name: "أحمد الكاسبي",
+      imageSrc: "/lovable-uploads/ab7a64bf-787c-4536-b086-883ce292d4fb.png",
       height: "240px"
     },
     {
