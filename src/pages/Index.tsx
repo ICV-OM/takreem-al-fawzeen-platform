@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import PodiumStep from '../components/PodiumStep';
 
@@ -8,32 +7,32 @@ const Index = () => {
       position: 2,
       name: "ماجد الهاشمي",
       imageSrc: "/lovable-uploads/beb1a6e7-9482-4d58-b0ca-a914a6736567.png",
-      height: "280px"
+      height: "200px"
     },
     {
       position: 1,
       name: "عمار الهاشمي",
       imageSrc: "/lovable-uploads/a21bba29-a454-4c5e-8f58-6db3213dce05.png",
-      height: "320px"
+      height: "240px"
     },
     {
       position: 3,
       name: "أحمد الكاسبي",
       imageSrc: "/lovable-uploads/ab7a64bf-787c-4536-b086-883ce292d4fb.png",
-      height: "240px"
+      height: "180px"
     },
     {
       position: 4,
       name: "إسراء",
       imageSrc: "/lovable-uploads/0d78814b-6fd4-420a-bb37-f463b1ed8e87.png",
-      height: "200px"
+      height: "160px"
     },
     {
       position: 5,
       name: "زينب",
       subtitle: "مركز التصوير الاحترافي",
       imageSrc: "/lovable-uploads/0d78814b-6fd4-420a-bb37-f463b1ed8e87.png",
-      height: "160px"
+      height: "140px"
     }
   ];
 
@@ -62,7 +61,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+    <div className="h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden flex flex-col">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-20 h-20 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
@@ -85,16 +84,16 @@ const Index = () => {
         ))}
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-8">
+      <div className="relative z-10 container mx-auto px-4 flex flex-col h-full justify-between">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 bg-clip-text text-transparent mb-4 animate-pulse">
+        <div className="text-center pt-4">
+          <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 bg-clip-text text-transparent mb-2 animate-pulse">
             🎉 منصة التكريم 🎉
           </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold text-white mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold text-white mb-2">
             تهانينا للفائزين الأعزاء
           </h2>
-          <div className="flex justify-center items-center gap-4 text-yellow-400 text-2xl">
+          <div className="flex justify-center items-center gap-4 text-yellow-400 text-xl">
             <span className="animate-bounce">🏆</span>
             <span className="animate-pulse">✨</span>
             <span className="animate-bounce">🥇</span>
@@ -104,10 +103,10 @@ const Index = () => {
         </div>
 
         {/* Podium */}
-        <div className="flex justify-center items-end gap-4 md:gap-8 max-w-6xl mx-auto mb-8">
+        <div className="flex justify-center items-end gap-2 md:gap-4 max-w-6xl mx-auto flex-grow">
           {!isAnimationComplete ? (
             // عرض الفائز الحالي منفرداً مع تأثير الظهور
-            <div className="animate-fade-in">
+            <div className="animate-fade-in flex items-end h-full">
               {getCurrentWinner() && (
                 <PodiumStep
                   key={getCurrentWinner()!.position}
@@ -135,28 +134,31 @@ const Index = () => {
           )}
         </div>
 
-        {/* Celebration Message */}
-        <div className="text-center bg-gradient-to-r from-purple-600/30 to-pink-600/30 backdrop-blur-sm rounded-xl p-6 mx-auto max-w-2xl border border-white/20 mb-8">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-            🎊 ألف مبارك للجميع 🎊
-          </h3>
-          <p className="text-lg text-purple-100">
-            نفتخر بإنجازاتكم ونتمنى لكم المزيد من التقدم والنجاح
-          </p>
-          <div className="flex justify-center gap-2 mt-4 text-2xl">
-            <span className="animate-pulse">🌟</span>
-            <span className="animate-bounce">💫</span>
-            <span className="animate-pulse">⭐</span>
-            <span className="animate-bounce">✨</span>
-            <span className="animate-pulse">🌟</span>
+        {/* Bottom Section */}
+        <div className="pb-4">
+          {/* Celebration Message */}
+          <div className="text-center bg-gradient-to-r from-purple-600/30 to-pink-600/30 backdrop-blur-sm rounded-xl p-4 mx-auto max-w-2xl border border-white/20 mb-4">
+            <h3 className="text-lg md:text-xl font-bold text-white mb-2">
+              🎊 ألف مبارك للجميع 🎊
+            </h3>
+            <p className="text-sm md:text-base text-purple-100">
+              نفتخر بإنجازاتكم ونتمنى لكم المزيد من التقدم والنجاح
+            </p>
+            <div className="flex justify-center gap-2 mt-2 text-lg">
+              <span className="animate-pulse">🌟</span>
+              <span className="animate-bounce">💫</span>
+              <span className="animate-pulse">⭐</span>
+              <span className="animate-bounce">✨</span>
+              <span className="animate-pulse">🌟</span>
+            </div>
           </div>
-        </div>
 
-        {/* Footer Message */}
-        <div className="text-center mt-12">
-          <p className="text-white/80 text-lg font-medium">
-            مع تحيات المكتب الوطني للمحتوى المحلي ICV @2025
-          </p>
+          {/* Footer Message */}
+          <div className="text-center">
+            <p className="text-white/80 text-sm md:text-base font-medium">
+              مع تحيات المكتب الوطني للمحتوى المحلي ICV @2025
+            </p>
+          </div>
         </div>
       </div>
 
