@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import PodiumStep from '../components/PodiumStep';
 
@@ -135,9 +136,9 @@ const Index = () => {
         </div>
 
         {/* Celebration Message */}
-        <div className="text-center bg-gradient-to-r from-purple-600/30 to-pink-600/30 backdrop-blur-sm rounded-xl p-6 mx-auto max-w-2xl border border-white/20">
+        <div className="text-center bg-gradient-to-r from-purple-600/30 to-pink-600/30 backdrop-blur-sm rounded-xl p-6 mx-auto max-w-2xl border border-white/20 mb-8">
           <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-            🎊 ألف مبروك للجميع 🎊
+            🎊 ألف مبارك للجميع 🎊
           </h3>
           <p className="text-lg text-purple-100">
             نفتخر بإنجازاتكم ونتمنى لكم المزيد من التقدم والنجاح
@@ -149,6 +150,13 @@ const Index = () => {
             <span className="animate-bounce">✨</span>
             <span className="animate-pulse">🌟</span>
           </div>
+        </div>
+
+        {/* Footer Message */}
+        <div className="text-center mt-12">
+          <p className="text-white/80 text-lg font-medium">
+            مع تحيات المكتب الوطني للمحتوى المحلي ICV @2025
+          </p>
         </div>
       </div>
 
