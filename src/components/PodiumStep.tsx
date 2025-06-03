@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Camera } from 'lucide-react';
+import { Camera, ExternalLink } from 'lucide-react';
 import Medal from './Medal';
 import Trophy from './Trophy';
 
@@ -99,6 +99,21 @@ const PodiumStep: React.FC<PodiumStepProps> = ({ position, name, imageSrc, heigh
           </div>
         )}
       </div>
+
+      {/* Attendance Awards Link - only for position 5 */}
+      {position === 5 && (
+        <div className="mb-3">
+          <a
+            href="https://wheelofnames.com/2z4-jgt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            <span>جوائز الحضور</span>
+            <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+      )}
 
       {/* Podium */}
       <div 
