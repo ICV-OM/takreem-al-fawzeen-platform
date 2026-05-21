@@ -93,7 +93,13 @@ const improvements = [
   'هوية بصرية حديثة للريادة بألوان موثوقة وتدرجات فاخرة وحركة خفيفة.',
 ];
 
-const navItems = ['البرامج', 'المسارات', 'الاستشارات', 'الشركاء', 'تواصل معنا'];
+const navItems = ['البرامج', 'المسارات', 'الاستشارات', 'الشركاء', 'آراء المتدربين', 'تواصل معنا'];
+
+const testimonials = [
+  { name: 'سارة العلوية', role: 'أخصائية موارد بشرية', quote: 'المسار المهني كان واضحاً من اليوم الأول، وحصلت على مقابلة عمل خلال أسبوعين من التخرج.' },
+  { name: 'محمد البلوشي', role: 'رائد أعمال ناشئ', quote: 'الاستشارات ساعدتني على تحويل الفكرة إلى خطة تنفيذ وربطتني بجهات داعمة.' },
+  { name: 'ريم الحارثية', role: 'خريجة مسار التحول الرقمي', quote: 'محتوى عملي ومشاريع تطبيقية؛ فعلاً نقلني من التعلم النظري إلى جاهزية مهنية.' },
+];
 
 const Index = () => {
   return (
@@ -349,6 +355,37 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+
+      <section id="آراء-المتدربين" className="container mx-auto px-5 py-20 lg:px-8">
+        <div className="mb-10 text-center">
+          <p className="font-black text-emerald-700">قصص نجاح</p>
+          <h2 className="mt-3 text-3xl font-black md:text-5xl">آراء المتدربين والشركاء</h2>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {testimonials.map((item) => (
+            <article key={item.name} className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm">
+              <div className="mb-4 flex gap-1 text-amber-400">
+                {[1, 2, 3, 4, 5].map((star) => <Star key={star} className="h-4 w-4 fill-current" />)}
+              </div>
+              <p className="leading-8 text-slate-700">"{item.quote}"</p>
+              <div className="mt-6 border-t border-slate-100 pt-4">
+                <h3 className="font-black">{item.name}</h3>
+                <p className="text-sm text-slate-500">{item.role}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div className="fixed bottom-5 left-5 z-50 flex flex-col gap-3">
+        <a href="mailto:info@Artec.om" className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-3 text-sm font-black text-white shadow-xl hover:bg-emerald-700">
+          <Mail className="h-4 w-4" /> تواصل الآن
+        </a>
+        <a href="#البرامج" className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-black text-white shadow-xl hover:bg-slate-800">
+          <ArrowLeft className="h-4 w-4" /> ابدأ المسار
+        </a>
+      </div>
 
       <footer id="تواصل-معنا" className="bg-slate-950 px-5 py-12 text-white lg:px-8">
         <div className="container mx-auto grid gap-10 md:grid-cols-3">
