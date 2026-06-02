@@ -7,6 +7,7 @@ const distDir = join(root, 'dist');
 const htmlPath = join(distDir, 'index.html');
 const outputDir = join(root, 'standalone');
 const outputPath = join(outputDir, 'alriyadah.html');
+const rootOutputPath = join(root, 'alriyadah.html');
 
 let html = readFileSync(htmlPath, 'utf8');
 
@@ -38,5 +39,6 @@ html = html.replace(
 
 mkdirSync(outputDir, { recursive: true });
 writeFileSync(outputPath, html);
+writeFileSync(rootOutputPath, html);
 
-console.log(`Standalone browser file created: ${outputPath}`);
+console.log(`Standalone browser files created: ${outputPath} and ${rootOutputPath}`);

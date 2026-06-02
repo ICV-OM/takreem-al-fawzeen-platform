@@ -103,4 +103,4 @@ npm run dev
 npm run build:browser
 ```
 
-الملف الناتج: `standalone/alriyadah.html`.
+الملف الناتج: `standalone/alriyadah.html` ونسخة ثانية مباشرة في الجذر `alriyadah.html`.
