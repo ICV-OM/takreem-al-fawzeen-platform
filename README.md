@@ -71,3 +71,36 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+
+## تشغيل الموقع مباشرة من GitHub
+
+> ملاحظة مهمة: فتح ملف HTML داخل واجهة **github.com** نفسها لن يشغل التطبيق (قد تظهر صفحة بيضاء أو العنوان فقط).
+> يجب النشر عبر **GitHub Pages** ثم فتح رابط Pages.
+
+### خطوات التفعيل
+
+1. ادفع التغييرات إلى فرع `main`.
+2. في GitHub: `Settings` -> `Pages`.
+3. في `Build and deployment` اختر `Source: GitHub Actions`.
+4. سيعمل Workflow تلقائياً (`Deploy to GitHub Pages`) وينشر الموقع.
+5. افتح رابط Pages الناتج (عادة: `https://<username>.github.io/<repo>/`).
+
+### لماذا كان يظهر عنوان المعهد فقط؟
+
+هذا يحصل غالباً عند فتح الملف كـ Blob من github.com أو بدون بيئة نشر صحيحة؛ JavaScript لا يعمل كتطبيق SPA في هذا السياق.
+
+### تشغيل محلي سريع
+
+```sh
+npm i
+npm run dev
+```
+
+### إنشاء نسخة المتصفح المباشرة
+
+```sh
+npm run build:browser
+```
+
+الملف الناتج: `standalone/alriyadah.html` ونسخة ثانية مباشرة في الجذر `alriyadah.html`.
