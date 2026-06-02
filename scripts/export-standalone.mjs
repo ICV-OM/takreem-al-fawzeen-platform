@@ -11,6 +11,11 @@ const outputPath = join(outputDir, 'alriyadah.html');
 let html = readFileSync(htmlPath, 'utf8');
 
 html = html.replace(
+  "document.documentElement.dataset.openMode = window.location.protocol === 'file:' ? 'file' : 'app';",
+  "document.documentElement.dataset.openMode = 'app';",
+);
+
+html = html.replace(
   /<script type="module" crossorigin src="\.\/(assets\/[^\"]+\.js)"><\/script>/,
   (_match, assetPath) => {
     const script = readFileSync(join(distDir, assetPath), 'utf8');
